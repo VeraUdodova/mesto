@@ -1,0 +1,8 @@
+.user__photo{
+    background-image: url("../../../images/avatar Custo.jpg");
+    background-repeat: no-repeat;
+    min-height: 120px;
+    max-width: 120px;
+    z-index: 1;
+    border-radius: 120px;
+}

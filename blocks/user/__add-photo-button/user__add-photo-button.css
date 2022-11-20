@@ -1,0 +1,13 @@
+.user__add-photo-button{
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+    height: 50px;
+    width: 150px;
+    background-color: #000000;
+}
+
+.user__add-pic{
+    height: 24px;
+    width: 24px;
+    margin: auto;
+}

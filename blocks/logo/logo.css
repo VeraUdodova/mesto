@@ -1,0 +1,21 @@
+.logo{
+    background-image: url("../../images/Logo.png");
+    background-repeat: no-repeat;
+    margin: 45px 0 0 200px;
+    min-height: 33px;
+}
+
+@media screen and (max-width: 900px){
+    .logo{
+        margin: 35px 0 0 100px;
+        min-height: 30px;
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .logo{
+        margin: 28px 0 0 27px;
+        min-height: 24.4px;
+    }
+}

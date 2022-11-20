@@ -1,0 +1,11 @@
+@import url(../vendor/normalize.css);
+@import url(../blocks/page/page.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/logo/logo.css);
+@import url(../blocks/bottom-line/bottom-line.css);
+@import url(../blocks/user/user.css);
+@import url(../blocks/user/__title/user__title.css);
+@import url(../blocks/user/__subtitle/user__subtitle.css);
+@import url(../blocks/user/__add-photo-button/user__add-photo-button.css);
+@import url(../blocks/user/__edit-button/user__edit-button.css);
+@import url(../blocks/user/__photo/user__photo.css);
