@@ -3,9 +3,13 @@
 @import url(../blocks/header/header.css);
 @import url(../blocks/logo/logo.css);
 @import url(../blocks/bottom-line/bottom-line.css);
-@import url(../blocks/user/user.css);
-@import url(../blocks/user/__title/user__title.css);
-@import url(../blocks/user/__subtitle/user__subtitle.css);
-@import url(../blocks/user/__add-photo-button/user__add-photo-button.css);
-@import url(../blocks/user/__edit-button/user__edit-button.css);
-@import url(../blocks/user/__photo/user__photo.css);
+@import url(../blocks/profile/user.css);
+@import url(../blocks/profile/__title/user__title.css);
+@import url(../blocks/profile/__subtitle/user__subtitle.css);
+@import url(../blocks/profile/__add-photo-button/user__add-photo-button.css);
+@import url(../blocks/profile/__edit-button/user__edit-button.css);
+@import url(../blocks/profile/__photo/user__photo.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__edit/profile__edit.css);
+@import url(../blocks/elements/elements.css);
+

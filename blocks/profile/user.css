@@ -1,0 +1,7 @@
+.user{
+    margin: 40px auto 51px;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-between;*/
+    max-width: 880px;
+}

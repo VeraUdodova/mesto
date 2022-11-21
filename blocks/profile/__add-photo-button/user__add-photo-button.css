@@ -4,6 +4,11 @@
     height: 50px;
     width: 150px;
     background-color: #000000;
+    /*position: relative;*/
+    /*align-self: center;*/
+    /*justify-self: center;*/
+    margin: auto 0 auto auto;
+
 }
 
 .user__add-pic{
