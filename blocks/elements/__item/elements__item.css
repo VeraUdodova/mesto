@@ -2,40 +2,5 @@
     max-width: 282px;
     display: flex;
     flex-direction: column;
-
-}
-
-.elements__like-button {
-    padding: 0;
-    margin: auto 0;
-    background-color: #FFFFFF;
-    max-width: 22px;
-    height: 19px;
-    border: 0;
-}
-
-.elements__like-pic {
-    object-fit: cover;
-    box-sizing: border-box;
-}
-
-.elements__name {
-    font-family: 'Inter', Arial, sans-serif;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
-
-    margin: 0;
-}
-
-.elements__title {
-    margin: 0;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    height: 79px;
-    justify-content: space-between;
-    padding: 25px 15px 31px 21px;
     box-sizing: border-box;
 }
