@@ -7,6 +7,10 @@
     margin: auto 0;
 }
 
+.user__edit-button:hover{
+    opacity: .6;
+}
+
 .user__edit-pic{
     height: 10px;
     width: 10px;

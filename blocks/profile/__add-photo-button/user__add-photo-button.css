@@ -1,14 +1,14 @@
 .user__add-photo-button{
     box-sizing: border-box;
-    border: 1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
     height: 50px;
     width: 150px;
     background-color: #000000;
-    /*position: relative;*/
-    /*align-self: center;*/
-    /*justify-self: center;*/
     margin: auto 0 auto auto;
+}
 
+.user__add-photo-button:hover{
+    opacity: .6;
 }
 
 .user__add-pic{
