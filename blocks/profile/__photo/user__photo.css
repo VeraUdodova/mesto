@@ -1,4 +1,4 @@
-.user__photo{
+.profile__photo{
     min-height: 120px;
     max-width: 120px;
     z-index: 1;
@@ -6,4 +6,10 @@
     margin: 0 30px 0 0;
     flex-basis: 0;
 
+}
+
+@media screen and (max-width: 700px) {
+    .profile__photo{
+        margin: 0 auto;
+    }
 }

@@ -2,3 +2,15 @@
     margin: 67px auto 60px;
     width: 880px;
 }
+
+@media screen and (max-width: 950px){
+    .footer{
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .footer{
+        width: 282px;
+    }
+}

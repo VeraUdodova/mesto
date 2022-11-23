@@ -1,4 +1,4 @@
-.user__edit-button{
+.profile__edit-button{
     box-sizing: border-box;
     border: 1px solid #FFFFFF;
     height: 24px;
@@ -7,11 +7,11 @@
     margin: auto 0;
 }
 
-.user__edit-button:hover{
+.profile__edit-button:hover{
     opacity: .6;
 }
 
-.user__edit-pic{
+.profile__edit-pic{
     height: 10px;
     width: 10px;
     margin: auto;

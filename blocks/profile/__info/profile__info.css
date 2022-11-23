@@ -7,3 +7,10 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width: 700px){
+    .profile__info{
+        gap: 14px;
+        align-items: center;
+    }
+}

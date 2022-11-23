@@ -6,14 +6,16 @@
     max-width: 880px;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 950px){
     .bottom-line{
+        max-width: 600px;
         margin: 33px 0 0 100px;
     }
 }
 
 @media screen and (max-width: 600px){
     .bottom-line{
-        margin: 31.6px 0 0;
+        /*max-width: 320px;*/
+        margin-left: 0;
     }
 }
