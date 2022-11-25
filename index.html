@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
-<script src="script.js"></script>
+
 <header class="header">
     <div class="logo"></div>
     <div class="bottom-line"></div>
@@ -92,17 +92,23 @@
 
 <section class="popup">
     <div class="popup__container">
+    <div class="popup__grid">
         <button class="popup__close"></button>
+    </div>
+    <div class="popup__window">
         <h2 class="popup__target">Редактировать профиль</h2>
         <input type="text" placeholder="Введите Ваше имя" class="popup__title popup__input">
+        <div class="popup__line"></div>
         <input type="text" placeholder="Введите Ваш статус" class="popup__subtitle popup__input">
+        <div class="popup__line"></div>
         <button class="popup__save">Сохранить</button>
+    </div>
     </div>
 </section>
 
 <footer class="footer">
     <p class="footer__copyright">&copy; 2022. Вера Удодова</p>
 </footer>
-
+<script src="script.js"></script>
 </body>
 </html>

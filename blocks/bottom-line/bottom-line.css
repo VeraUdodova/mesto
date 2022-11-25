@@ -2,7 +2,7 @@
     margin:41px 0 0;
     border-bottom: 1px solid #545454;
     opacity: .7;
-    z-index: 1;
+    /*z-index: 1;*/
     max-width: 880px;
 }
 

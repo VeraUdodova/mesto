@@ -1,0 +1,10 @@
+.popup__close {
+    background-image: url("../../../images/close.png");
+    background-repeat: no-repeat;
+    height: 32px;
+    width: 32px;
+    background-color: transparent;
+    object-fit: cover;
+    margin: 0;
+    border: none;
+}
