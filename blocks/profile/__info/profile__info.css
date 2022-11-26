@@ -1,5 +1,4 @@
 .profile__info{
-    /*display: flex;*/
     flex-direction: column;
     min-height: 120px;
     gap: 16px;
