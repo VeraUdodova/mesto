@@ -6,3 +6,4 @@
 
 * [Ссылка на GitHub Pages](https://veraudodova.github.io/mesto/)
 
+* Автор: Вера Удодова
