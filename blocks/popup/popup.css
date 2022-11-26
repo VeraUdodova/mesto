@@ -6,8 +6,16 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     overflow: hidden;
     flex-direction: column;
+    padding-top: 155px;
 }
+
+@media screen and (max-width: 700px){
+    .popup{
+        padding-top: 87px;
+    }
+}
+

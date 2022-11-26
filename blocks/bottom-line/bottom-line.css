@@ -1,21 +1,21 @@
 .bottom-line{
-    margin:41px 0 0;
+    margin:40px 0 0;
     border-bottom: 1px solid #545454;
-    opacity: .7;
-    /*z-index: 1;*/
+    opacity: .5;
     max-width: 880px;
 }
 
 @media screen and (max-width: 950px){
     .bottom-line{
-        max-width: 600px;
-        margin: 33px 0 0 100px;
+        width: 600px;
+        margin: 33px auto 0;
     }
 }
 
 @media screen and (max-width: 600px){
     .bottom-line{
-        /*max-width: 320px;*/
-        margin-left: 0;
+        width: 100%;
+        margin: 31.6px 0 0;
+        opacity: .7;
     }
 }

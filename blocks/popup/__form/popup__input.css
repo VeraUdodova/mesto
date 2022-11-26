@@ -1,4 +1,4 @@
-.popup__input{
+.popup__form-input{
     display: flex;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
@@ -11,6 +11,6 @@
     border: none;
 }
 
-.popup__input:focus{
+.popup__form-input:focus{
     border: none;
 }

@@ -1,0 +1,14 @@
+.popup__close-box{
+    display: flex;
+    width: 470px;
+    /*height: 370px;*/
+    align-content: end;
+    justify-content: flex-end;
+    grid-gap: 8px;
+}
+
+@media screen and (max-width: 700px){
+    .popup__close-box{
+        width: 282px
+    }
+}

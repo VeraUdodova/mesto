@@ -1,8 +1,0 @@
-.popup__grid{
-    display: grid;
-    width: 470px;
-    /*height: 370px;*/
-    align-content: end;
-    justify-content: flex-end;
-    grid-gap: 8px;
-}

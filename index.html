@@ -15,99 +15,87 @@
 </header>
 
 <section class="profile">
-    <img class="profile__photo" src="images/avatar%20Custo.jpg" alt="Фотография пользователя">
+    <img class="profile__photo" src="images/avatar-custo.jpg" alt="Фотография пользователя">
     <div class="profile__info">
         <div class="profile__edit">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <button class="profile__edit-button" type="button">
-                <img class="profile__edit-pic" src="images/Vectoredit.png" alt="редактировать">
+                <img class="profile__edit-pic" src="images/edit-button.png" alt="редактировать">
             </button>
         </div>
         <p class="profile__subtitle">Исследователь океана</p>
     </div>
     <button class="profile__add-photo-button" type="button">
-        <img class="profile__add-pic" src="images/Vectoradd.png" alt="добавить фото">
+        <img class="profile__add-pic" src="images/add-button.png" alt="добавить фото">
     </button>
 </section>
 
 <!--Загруженные фотографии-->
 <section class="elements">
     <div class="elements__item">
-        <img class="elements__photo" src="./images/Карачаевск.jpg" alt="фото Карачаевск">
+        <img class="elements__photo" src="images/karachaevsk.jpg" alt="фото Карачаевск">
         <div class="elements__title">
             <h2 class="elements__name">Карачаевск</h2>
-            <button class="elements__like-button" type="button">
-                <img class="elements__like-pic" src="images/Vectorheart.png" alt="поставить лайк">
-            </button>
+            <button class="elements__like-button_disabled" type="button"></button>
         </div>
     </div>
-
-
     <div class="elements__item">
-        <img class="elements__photo" src="./images/Гора%20Эльбрус.jpg" alt="фото Гора Эльбрус">
+        <img class="elements__photo" src="./images/Elbrus.jpg" alt="фото Гора Эльбрус">
         <div class="elements__title">
             <h2 class="elements__name">Гора Эльбрус</h2>
-            <button class="elements__like-button" type="button">
-                <img class="elements__like-pic" src="images/Vectorheart.png" alt="поставить лайк">
-            </button>
+            <button class="elements__like-button_disabled" type="button"></button>
         </div>
     </div>
     <div class="elements__item">
-        <img class="elements__photo" src="./images/Домбай.jpg" alt="фото Домбай">
+        <img class="elements__photo" src="images/Dombay.jpg" alt="фото Домбай">
         <div class="elements__title">
             <h2 class="elements__name">Домбай</h2>
-            <button class="elements__like-button" type="button">
-                <img class="elements__like-pic" src="images/Vectorheart.png" alt="поставить лайк">
-            </button>
+            <button class="elements__like-button_disabled" type="button"></button>
         </div>
     </div>
     <div class="elements__item">
-        <img class="elements__photo" src="./images/Гора%20Эльбрус.jpg" alt="фото Гора Эльбрус">
+        <img class="elements__photo" src="./images/Elbrus.jpg" alt="фото Гора Эльбрус">
         <div class="elements__title">
             <h2 class="elements__name">Гора Эльбрус</h2>
-            <button class="elements__like-button" type="button">
-                <img class="elements__like-pic" src="images/Vectorheart.png" alt="поставить лайк">
-            </button>
+            <button class="elements__like-button_disabled" type="button"></button>
         </div>
     </div>
     <div class="elements__item">
-        <img class="elements__photo" src="./images/Домбай.jpg" alt="фото Домбай">
+        <img class="elements__photo" src="images/Dombay.jpg" alt="фото Домбай">
         <div class="elements__title">
             <h2 class="elements__name">Домбай</h2>
-            <button class="elements__like-button" type="button">
-                <img class="elements__like-pic" src="images/Vectorheart.png" alt="поставить лайк">
-            </button>
+            <button class="elements__like-button_disabled" type="button"></button>
         </div>
     </div>
     <div class="elements__item">
-        <img class="elements__photo" src="./images/Карачаево-Черкессия.jpg" alt="фото Карачаево-Черкессия">
+        <img class="elements__photo" src="images/karachaevo-cherkessiya.jpg" alt="фото Карачаево-Черкессия">
         <div class="elements__title">
             <h2 class="elements__name">Карачаево-Черкессия</h2>
-            <button class="elements__like-button" type="button">
-                <img class="elements__like-pic" src="images/Vectorheart.png" alt="поставить лайк">
-            </button>
+            <button class="elements__like-button_disabled" type="button"></button>
         </div>
     </div>
 </section>
 
 <section class="popup">
     <div class="popup__container">
-    <div class="popup__grid">
-        <button class="popup__close"></button>
-    </div>
-    <div class="popup__window">
-        <h2 class="popup__target">Редактировать профиль</h2>
-        <input type="text" placeholder="Введите Ваше имя" class="popup__title popup__input">
-        <div class="popup__line"></div>
-        <input type="text" placeholder="Введите Ваш статус" class="popup__subtitle popup__input">
-        <div class="popup__line"></div>
-        <button class="popup__save">Сохранить</button>
-    </div>
+        <div class="popup__close-box">
+            <button class="popup__close"></button>
+        </div>
+        <div class="popup__window">
+            <h2 class="popup__target">Редактировать профиль</h2>
+            <form class="popup__form">
+                <input type="text" placeholder="Введите Ваше имя" class="popup__name popup__form-input">
+                <div class="popup__line"></div>
+                <input type="text" placeholder="Введите Ваш статус" class="popup__status popup__form-input">
+                <div class="popup__line"></div>
+                <button class="popup__form-save" type="submit">Сохранить</button>
+            </form>
+        </div>
     </div>
 </section>
 
 <footer class="footer">
-    <p class="footer__copyright">&copy; 2022. Вера Удодова</p>
+    <p class="footer__copyright">&copy; 2022 Вера Удодова</p>
 </footer>
 <script src="script.js"></script>
 </body>
