@@ -27,7 +27,7 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 
 //Функция, которая закрашивает сердечко
-let heartElements = document.querySelectorAll('.elements__like-button_disabled')
+let heartElements = document.querySelectorAll('.element__like-button_disabled')
 
 const heartElementEnabler = function (event) {
     event.target.classList.add('elements__like-button_active');

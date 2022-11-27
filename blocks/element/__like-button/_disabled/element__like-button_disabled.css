@@ -1,4 +1,4 @@
-.elements__like-button_disabled {
+.element__like-button_disabled {
     padding: 0;
     margin: auto 0;
     min-width: 22px;
@@ -10,6 +10,6 @@
     border: none;
 }
 
-.elements__like-button_disabled:hover{
+.element__like-button_disabled:hover{
     opacity: .5;
 }
