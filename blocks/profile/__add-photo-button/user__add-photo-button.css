@@ -5,6 +5,7 @@
     width: 150px;
     background-color: #000000;
     margin: auto 0 auto auto;
+    cursor: pointer;
 }
 
 .profile__add-photo-button:hover {
