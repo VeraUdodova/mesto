@@ -1,15 +1,15 @@
-.element__like-button_disabled {
+.element__like-button {
     padding: 0;
     margin: auto 0;
     min-width: 22px;
     height: 19px;
-    background-image: url("../../../../images/heart-button.png");
+    background-image: url("../../../images/heart-button.png");
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: contain;
     border: none;
 }
 
-.element__like-button_disabled:hover{
+.element__like-button:hover{
     opacity: .5;
 }

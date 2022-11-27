@@ -15,7 +15,7 @@
 @import url(../blocks/profile/__add-pic/profile__add-pic.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
-@import url(../blocks/element/__like-button/_disabled/element__like-button_disabled.css);
+@import url(../blocks/element/__like-button/element__like-button.css);
 @import url(../blocks/element/__like-button/_active/element__like-button_active.css);
 @import url(../blocks/element/__name/element__name.css);
 @import url(../blocks/element/__title/elements__title.css);
