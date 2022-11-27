@@ -5,8 +5,8 @@ const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 // кнопка открытия всплывающего окошка
 const openButton = document.querySelector('.profile');
 const popupOpenButtonElement = openButton.querySelector('.profile__edit-button');
-let nameInput = popupElement.querySelector('.popup__name')
-let statusInput = popupElement.querySelector('.popup__status')
+let nameInput = popupElement.querySelector('.popup__form-input_name_username')
+let statusInput = popupElement.querySelector('.popup__form-input_name_status')
 let newName = document.querySelector('.profile__title');
 let newStatus = document.querySelector('.profile__subtitle');
 

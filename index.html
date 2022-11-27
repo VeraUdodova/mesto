@@ -76,6 +76,10 @@
     </div>
 </section>
 
+<footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Вера Удодова</p>
+</footer>
+
 <section class="popup">
     <div class="popup__container">
         <div class="popup__close-box">
@@ -83,10 +87,10 @@
         </div>
         <div class="popup__window">
             <h2 class="popup__target">Редактировать профиль</h2>
-            <form class="popup__form">
-                <input type="text" placeholder="Введите Ваше имя" class="popup__name popup__form-input">
+            <form name="form_profile" class="popup__form">
+                <input type="text" name="form_profile_name" placeholder="Введите Ваше имя" class="popup__form-input popup__form-input_name_username">
                 <div class="popup__line"></div>
-                <input type="text" placeholder="Введите Ваш статус" class="popup__status popup__form-input">
+                <input type="text" name="form_profile_status" placeholder="Введите Ваш статус" class="popup__form-input popup__form-input_name_status">
                 <div class="popup__line"></div>
                 <button class="popup__form-save" type="submit">Сохранить</button>
             </form>
@@ -94,9 +98,6 @@
     </div>
 </section>
 
-<footer class="footer">
-    <p class="footer__copyright">&copy; 2022 Вера Удодова</p>
-</footer>
 <script src="scripts/index.js"></script>
 </body>
 </html>
