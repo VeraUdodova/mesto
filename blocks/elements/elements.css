@@ -25,5 +25,6 @@
         max-width: 282px;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(6, 1fr);
+        row-gap: 20.5px;
     }
 }

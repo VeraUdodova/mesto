@@ -5,8 +5,13 @@
     font-style: normal;
     line-height: 48px;
     color: #ffffff;
-    margin: 0 25px 0 0;
+    margin: 0 20px 0 0;
     padding: 0;
+    max-width: 450px;
+    /*text-align: center;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 950px) {
@@ -15,6 +20,7 @@
         line-height: 40px;
         text-align: center;
         margin-right: 15px;
+        max-width: 280px;
     }
 }
 
@@ -22,6 +28,6 @@
     .profile__title {
         font-size: 27px;
         line-height: 33px;
-        margin-right: 10px;
+        margin-right: 3px;
     }
 }

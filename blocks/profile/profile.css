@@ -15,5 +15,7 @@
     .profile{
         max-width: 282px;
         flex-direction: column;
+        /*height: 270px;*/
+        margin: 40px auto 35px;
     }
 }
