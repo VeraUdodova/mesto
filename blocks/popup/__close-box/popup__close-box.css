@@ -3,7 +3,6 @@
     width: 470px;
     align-content: end;
     justify-content: flex-end;
-    grid-gap: 8px;
 }
 
 @media screen and (max-width: 700px){

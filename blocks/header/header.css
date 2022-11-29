@@ -6,3 +6,8 @@
 
 }
 
+@media screen and (max-width: 950px) {
+    .header{
+        max-width: 600px;
+    }
+}

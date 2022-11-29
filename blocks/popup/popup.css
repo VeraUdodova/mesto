@@ -1,5 +1,5 @@
-.popup{
-    height:100%;
+.popup {
+    height: 100%;
     width: 100%;
     position: fixed;
     top: 0;
@@ -9,12 +9,6 @@
     align-items: center;
     overflow: hidden;
     flex-direction: column;
-    padding-top: 155px;
-}
-
-@media screen and (max-width: 700px){
-    .popup{
-        padding-top: 87px;
-    }
+    justify-content: center;
 }
 
