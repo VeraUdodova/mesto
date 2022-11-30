@@ -28,6 +28,7 @@
     .profile__title {
         font-size: 27px;
         line-height: 33px;
-        margin-right: 3px;
+        margin:0;
+        max-width: 224px;
     }
 }

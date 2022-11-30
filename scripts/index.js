@@ -1,12 +1,13 @@
 // Объявление переменных
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
-const nameInput = popupElement.querySelector('.popup__form-input_name_username')
-const statusInput = popupElement.querySelector('.popup__form-input_name_status')
+const nameInput = popupElement.querySelector('.popup__form-input_name_username');
+const statusInput = popupElement.querySelector('.popup__form-input_name_status');
 const openButton = document.querySelector('.profile');
 const popupOpenButtonElement = openButton.querySelector('.profile__edit-button');
 const newName = document.querySelector('.profile__title');
 const newStatus = document.querySelector('.profile__subtitle');
+
 
 //функция, которая открывает и закрывает окошко
 const openPopup = function () {
