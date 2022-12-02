@@ -13,11 +13,11 @@ const newStatus = document.querySelector('.profile__subtitle');
 const openPopup = function () {
     nameInput.value = newName.textContent;
     statusInput.value = newStatus.textContent;
-    popupElement.classList.add('popup__opened');
+    popupElement.classList.add('popup_opened');
     console.log('Open popup clicked');
 }
 const closePopup = function () {
-    popupElement.classList.remove('popup__opened');
+    popupElement.classList.remove('popup_opened');
     console.log('Close popup clicked');
 }
 
