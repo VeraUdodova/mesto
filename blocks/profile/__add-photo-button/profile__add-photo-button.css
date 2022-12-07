@@ -1,6 +1,7 @@
 .profile__add-photo-button {
     box-sizing: border-box;
     border: 2px solid #FFFFFF;
+    border-radius: 2px;
     height: 50px;
     width: 150px;
     background-color: #000000;

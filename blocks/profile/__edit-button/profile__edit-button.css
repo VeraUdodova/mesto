@@ -14,16 +14,26 @@
     justify-content: center;
     align-self: center;
     padding: 0;
+    margin-top: 8px;
 }
 
 .profile__edit-button:hover{
     opacity: .6;
 }
 
+@media screen and (max-width: 950px){
+    .profile__edit-button{
+        height: 20px;
+        width: 20px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .profile__edit-button {
         position: absolute;
         right: -28px;
+        margin-top: 0;
+        top: 8px;
         height: 18px;
         width: 18px;
         background-size: 7.5px 7.5px;

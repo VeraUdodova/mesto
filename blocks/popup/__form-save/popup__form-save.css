@@ -11,6 +11,7 @@
     line-height: 22px;
     border: none;
     cursor: pointer;
+    border-radius: 2px;
 }
 .popup__form-save:hover{
     opacity: .8;
