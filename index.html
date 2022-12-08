@@ -25,56 +25,8 @@
     <button class="profile__add-photo-button" type="button"></button>
 </section>
 
-<!--Загруженные фотографии-->
+<!--Загруженные фотографии -> делается через JS-->
 <section class="elements">
-<!--    <article class="element">-->
-<!--        <button class="element__trash-button" type="button"></button>-->
-<!--        <img class="element__photo" src="images/karachaevsk.jpg" alt="фото Карачаевск">-->
-<!--        <div class="element__title">-->
-<!--            <h2 class="element__name">Карачаевск</h2>-->
-<!--            <button class="element__like-button" type="button"></button>-->
-<!--        </div>-->
-<!--    </article>-->
-<!--    <article class="element">-->
-<!--        <button class="element__trash-button" type="button"></button>-->
-<!--        <img class="element__photo" src="images/elbrus.jpg" alt="фото Гора Эльбрус">-->
-<!--        <div class="element__title">-->
-<!--            <h2 class="element__name">Гора Эльбрус</h2>-->
-<!--            <button class="element__like-button" type="button"></button>-->
-<!--        </div>-->
-<!--    </article>-->
-<!--    <article class="element">-->
-<!--        <button class="element__trash-button" type="button"></button>-->
-<!--        <img class="element__photo" src="images/dombay.jpg" alt="фото Домбай">-->
-<!--        <div class="element__title">-->
-<!--            <h2 class="element__name">Домбай</h2>-->
-<!--            <button class="element__like-button" type="button"></button>-->
-<!--        </div>-->
-<!--    </article>-->
-<!--    <article class="element">-->
-<!--        <button class="element__trash-button" type="button"></button>-->
-<!--        <img class="element__photo" src="images/elbrus.jpg" alt="фото Гора Эльбрус">-->
-<!--        <div class="element__title">-->
-<!--            <h2 class="element__name">Гора Эльбрус</h2>-->
-<!--            <button class="element__like-button" type="button"></button>-->
-<!--        </div>-->
-<!--    </article>-->
-<!--    <article class="element">-->
-<!--        <button class="element__trash-button" type="button"></button>-->
-<!--        <img class="element__photo" src="images/dombay.jpg" alt="фото Домбай">-->
-<!--        <div class="element__title">-->
-<!--            <h2 class="element__name">Домбай</h2>-->
-<!--            <button class="element__like-button" type="button"></button>-->
-<!--        </div>-->
-<!--    </article>-->
-<!--    <article class="element">-->
-<!--        <button class="element__trash-button" type="button"></button>-->
-<!--        <img class="element__photo" src="images/karachaevo-cherkessiya.jpg" alt="фото Карачаево-Черкессия">-->
-<!--        <div class="element__title">-->
-<!--            <h2 class="element__name">Карачаево-Черкессия</h2>-->
-<!--            <button class="element__like-button" type="button"></button>-->
-<!--        </div>-->
-<!--    </article>-->
 </section>
 
 <footer class="footer">
@@ -82,7 +34,7 @@
 </footer>
 
 <section class="popup">
-    <div class="popup__container">
+    <div class="popup__container popup__edit-container popup__container_display">
         <button type="button" class="popup__close"></button>
         <h2 class="popup__target">Редактировать профиль</h2>
         <form name="form_profile" class="popup__form">
@@ -93,7 +45,26 @@
             <button class="popup__form-save" type="submit">Сохранить</button>
         </form>
     </div>
+<!--    Попап для добавления фото-->
+    <div class="popup__container popup__add-container popup__container_display">
+        <button type="button" class="popup__add-close popup__close"></button>
+        <h2 class="popup__add-target popup__target">Новое место</h2>
+        <form name="form_place" class="popup__add-form">
+            <input type="text" name="form_place_name" placeholder="Название"
+                   class="popup__add-form-input popup__form-input popup__form-place_name_name">
+            <input type="text" name="form_place_url" placeholder="Ссылка на картинку"
+                   class="popup__add-form-input popup__form-input popup__form-place_name_url">
+            <button class="popup__add-form-save popup__form-save" type="submit">Создать</button>
+        </form>
+    </div>
+<!--  Попап для просмотра увеличенных фото  -->
+    <div class="popup__fullsize-pic-container popup__container_display">
+        <button type="button" class="popup__fullsize-pic-close popup__close"></button>
+        <img class="popup__fullsize-pic-image" src="" alt="">
+        <h2 class="popup__fullsize-pic-title"></h2>
+    </div>
 </section>
+
 
 <script src="scripts/index.js"></script>
 </body>
