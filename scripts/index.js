@@ -54,7 +54,7 @@ const initialCards = [
 const openPopup = function (popupSelector) {
     popupElement.classList.add('popup_opened');
     console.log('Open popup clicked');
-    popupSelector.classList.remove('popup__container_display')
+    popupSelector.classList.remove('popup__container-display')
 }
 
 //функция, которая закрывает окошко
@@ -62,7 +62,7 @@ const closePopup = function (parentContainer) {
     popupElement.classList.remove('popup_opened');
     popupElement.classList.remove('popup__fullsize');
     console.log('Close popup clicked');
-    parentContainer.classList.add('popup__container_display');
+    parentContainer.classList.add('popup__container-display');
 }
 for (let i = 0; i < popupCloseButtonElement.length; i++) {
     popupCloseButtonElement[i].addEventListener('click',
