@@ -3,4 +3,7 @@
     border-top-right-radius: 10px;
     height: 282px;
     width: 282px;
+    object-fit: cover;
+    object-position: center top;
+
 }

@@ -9,16 +9,17 @@
     width: 358px;
     margin: 0 0 22px;
     border: none;
-    padding:9px 0;
+    padding:8px 0;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
-.popup__form-input:focus{
-    width: 238px;
-}
+/*.popup__form-input:focus{*/
+/*    width: 238px;*/
+/*}*/
 
 @media screen and (max-width: 950px) {
     .popup__form-input{
         max-width: 238px;
+        margin-bottom: 20px;
     }
 }
