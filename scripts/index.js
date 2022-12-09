@@ -10,7 +10,7 @@ const newName = document.querySelector('.profile__title');
 const newStatus = document.querySelector('.profile__subtitle');
 const addPopupElement = document.querySelector('.popup__add-container');
 const openAddButtonElement = document.querySelector('.profile__add-photo-button');
-
+const formProfileElement = document.querySelector('.form_profile');
 
 //функция, которая открывает окошко
 const openPopup = function (popupSelector) {
@@ -37,12 +37,27 @@ for (let i = 0; i < popupCloseButtonElement.length; i++) {
 }
 // кнопка "Сохранить"
 const handleFormSubmit = function (event) {
-    const closeButton = popupOpenButtonContainer.querySelector('.popup__close')
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     newName.textContent = nameInput.value;
     newStatus.textContent = statusInput.value;
-    closePopup(event.target.parentElement.parentElement)
+    closePopup(event.target.parentElement)
 }
+
+// кнопка "Создать" для добавления новых картинок
+const popupAddButton = document.querySelector('.popup__add-close');
+const popupAddButtonContainer = document.querySelector('.popup__add-container');
+const addTitleInput = document.querySelector('.popup__add-form-input_name_title');
+const addUrlInput = document.querySelector('.popup__add-form-input_name_url');
+const addImageTitle = document.querySelector('.popup__fullsize-pic-title');
+
+const handleAddFormSubmit = function (event) {
+    event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+    addImageTitle.textContent = addTitleInput.value;
+    addCard(addTitleInput.value, addUrlInput.value)
+    closePopup(event.target.parentElement)
+}
+popupAddButtonContainer.addEventListener('submit', handleAddFormSubmit);
+
 
 //Ставим "сердечко"
 let heartElements = document.querySelectorAll('.element__like-button')
@@ -153,5 +168,9 @@ openAddButtonElement.addEventListener('click', function () {
 
 
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
-popupElement.addEventListener('submit', handleFormSubmit);
+popupOpenButtonContainer.addEventListener('submit', handleFormSubmit);
+
+
+
+
 

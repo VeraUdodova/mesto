@@ -35,7 +35,7 @@
 
 <section class="popup">
     <div class="popup__container popup__edit-container popup__container_display">
-        <button type="button" class="popup__close"></button>
+        <button type="button" class="popup__close popup__edit_close"></button>
         <h2 class="popup__target">Редактировать профиль</h2>
         <form name="form_profile" class="popup__form">
             <input type="text" name="form_profile_name" placeholder="Введите Ваше имя"
@@ -47,13 +47,13 @@
     </div>
 <!--    Попап для добавления фото-->
     <div class="popup__container popup__add-container popup__container_display">
-        <button type="button" class="popup__add-close popup__close"></button>
+        <button type="button" class="popup__close popup__add-close"></button>
         <h2 class="popup__add-target popup__target">Новое место</h2>
         <form name="form_place" class="popup__add-form">
             <input type="text" name="form_place_name" placeholder="Название"
-                   class="popup__add-form-input popup__form-input popup__form-place_name_name">
+                   class="popup__form-input popup__add-form-input popup__add-form-input_name_title">
             <input type="text" name="form_place_url" placeholder="Ссылка на картинку"
-                   class="popup__add-form-input popup__form-input popup__form-place_name_url">
+                   class="popup__add-form-input popup__form-input popup__add-form-input_name_url">
             <button class="popup__add-form-save popup__form-save" type="submit">Создать</button>
         </form>
     </div>
