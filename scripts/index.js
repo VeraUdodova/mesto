@@ -9,10 +9,10 @@ const popupProfileEditButtonContainer = document.querySelector('.popup__edit-con
 const profileNewName = document.querySelector('.profile__title');
 const profileNewStatus = document.querySelector('.profile__subtitle');
 const elementsSection = document.querySelector('.elements');
-const popupEditProfile = document.querySelector('.profile-popup');
+const popupEditProfile = document.querySelector('.popup__edit-profile-block');
 
 //Константы для функции добавления картинок
-const popupAddPhoto = document.querySelector('.add-photo-popup');
+const popupAddPhoto = document.querySelector('.popup__add-photo-block');
 const addPopupElement = document.querySelector('.popup__add-container');
 const openAddImageButtonElement = document.querySelector('.profile__add-photo-button');
 const popupAddImageButtonContainer = document.querySelector('.popup__add-container');
@@ -20,7 +20,7 @@ const addImageTitleInput = document.querySelector('.popup__add-form-input_name_t
 const addImageUrlInput = document.querySelector('.popup__add-form-input_name_url');
 
 //Константы для полноразмерных картинок
-const popupFullSizeSection = document.querySelector('.fullsize-pic-popup')
+const popupFullSizeSection = document.querySelector('.popup__fullsize-pic-block')
 const fullSizeContainer = document.querySelector('.popup__fullsize-pic-container');
 const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
 const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
@@ -60,8 +60,7 @@ const handleEditFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     profileNewName.textContent = nameProfileInput.value;
     profileNewStatus.textContent = statusProfileInput.value;
-    console.log(event.target)
-    closePopup(event.target.closest('.popup'));
+    closePopup(event.target);
 
 }
 
@@ -70,12 +69,13 @@ const handleAddFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     addCard(addImageTitleInput.value, addImageUrlInput.value);
     event.target.reset()
-    closePopup(event.target.closest('.popup'));
+    closePopup(event.target);
+    console.log('New picture added')
 }
 
 //Удаление картинки по нажатию на корзину
 const handleImageDelete = function (event) {
-    event.target.parentElement.remove();
+    event.target.closest('.element').remove();
     console.log('delete clicked');
 }
 
@@ -95,16 +95,13 @@ function openPopup(popup) {
 
 //функция, которая закрывает окошко
 function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-    popupElement.classList.remove('popup__fullsize');
+    popup.closest('.popup').classList.remove('popup_opened');
     console.log('Close popup clicked');
 }
 
-
 // функция закрытия окна по нажатию на крестик
 closeButtons.forEach((button) => {
-    const popup = button.closest('.popup');
-    button.addEventListener('click', () => closePopup(popup));
+    button.addEventListener('click', () => closePopup(button));
 });
 
 //Добавление структуры для картинок
