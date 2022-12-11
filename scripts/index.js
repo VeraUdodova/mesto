@@ -9,15 +9,15 @@ const popupProfileEditButtonContainer = document.querySelector('.popup__edit-con
 const profileNewName = document.querySelector('.profile__title');
 const profileNewStatus = document.querySelector('.profile__subtitle');
 const elementsSection = document.querySelector('.elements');
-const popupEditProfile = document.querySelector('.popup__edit-profile-block');
+const popupEditProfile = document.querySelector('.popup-edit-profile-block');
 
 //Константы для функции добавления картинок
-const popupAddPhoto = document.querySelector('.popup__add-photo-block');
+const popupAddPhoto = document.querySelector('.popup-add-photo-block');
 const addPopupElement = document.querySelector('.popup__add-container');
 const openAddImageButtonElement = document.querySelector('.profile__add-photo-button');
 const popupAddImageButtonContainer = document.querySelector('.popup__add-container');
-const addImageTitleInput = document.querySelector('.popup__add-form-input_name_title');
-const addImageUrlInput = document.querySelector('.popup__add-form-input_name_url');
+const addImageTitleInput = document.querySelector('.popup__form-add-pic-input_name_title');
+const addImageUrlInput = document.querySelector('.popup__form-add-pic-input_name_url');
 
 //Константы для полноразмерных картинок
 const popupFullSizeSection = document.querySelector('.popup__fullsize-pic-block')
