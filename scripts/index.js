@@ -16,11 +16,11 @@ const popupAddPhoto = document.querySelector('.popup-add-photo-block');
 const addPopupElement = document.querySelector('.popup__add-container');
 const openAddImageButtonElement = document.querySelector('.profile__add-photo-button');
 const popupAddImageButtonContainer = document.querySelector('.popup__add-container');
-const addImageTitleInput = document.querySelector('.popup__form-add-pic-input_name_title');
-const addImageUrlInput = document.querySelector('.popup__form-add-pic-input_name_url');
+const addImageTitleInput = document.querySelector('.popup__form-input_add-pic_name_title');
+const addImageUrlInput = document.querySelector('.popup__form-input_add-pic_name_url');
 
 //Константы для полноразмерных картинок
-const popupFullSizeSection = document.querySelector('.popup__fullsize-pic-block')
+const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block')
 const fullSizeContainer = document.querySelector('.popup__fullsize-pic-container');
 const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
 const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
