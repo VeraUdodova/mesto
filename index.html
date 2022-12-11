@@ -27,26 +27,16 @@
 
 <!--Загруженные фотографии -> делается через JS-->
 <section class="elements">
-    <template id="element">
-        <article class="element">
-            <button class="element__trash-button" type="button"></button>
-            <button class="element__img-button" type="button">
-                <img class="element__photo" src="https://ya.ru" alt="text">
-            </button>
-            <div class="element__title">
-                <h2 class="element__name"></h2>
-                <button class="element__like-button" type="button"></button>
-            </div>
-        </article>
-    </template>
+
 </section>
 
 <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Вера Удодова</p>
 </footer>
 
-<section class="popup">
-    <div class="popup__container popup__edit-container popup__container-display">
+<!--    Попап для редактирования профиля-->
+<div class="popup profile-popup">
+    <div class="popup__container popup__edit-container">
         <button type="button" class="popup__close popup__edit-close"></button>
         <h2 class="popup__target">Редактировать профиль</h2>
         <form name="form_profile" class="popup__form">
@@ -57,8 +47,11 @@
             <button class="popup__form-save" type="submit">Сохранить</button>
         </form>
     </div>
+</div>
+
 <!--    Попап для добавления фото-->
-    <div class="popup__container popup__add-container popup__container-display">
+<div class="popup add-photo-popup">
+    <div class="popup__container popup__add-container">
         <button type="button" class="popup__close popup__add-close"></button>
         <h2 class="popup__add-target popup__target">Новое место</h2>
         <form name="form_place" class="popup__add-form">
@@ -69,14 +62,29 @@
             <button class="popup__add-form-save popup__form-save" type="submit">Создать</button>
         </form>
     </div>
+</div>
+
 <!--  Попап для просмотра увеличенных фото  -->
-    <div class="popup__fullsize-pic-container popup__container-display">
+<div class="popup fullsize-pic-popup">
+    <div class="popup__fullsize-pic-container">
         <button type="button" class="popup__fullsize-pic-close popup__close"></button>
         <img class="popup__fullsize-pic-image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="">
         <h2 class="popup__fullsize-pic-title"></h2>
     </div>
-</section>
+</div>
 
+<template id="element">
+    <article class="element">
+        <button class="element__trash-button" type="button"></button>
+        <button class="element__img-button" type="button">
+            <img class="element__photo" src="https://ya.ru" alt="text">
+        </button>
+        <div class="element__title">
+            <h2 class="element__name"></h2>
+            <button class="element__like-button" type="button"></button>
+        </div>
+    </article>
+</template>
 
 <script src="scripts/index.js"></script>
 </body>
