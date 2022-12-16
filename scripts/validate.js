@@ -63,10 +63,10 @@ const enableValidation = (obj) => {
 
 enableValidation({
     formSelector: '.popup__form',
-    formFieldsetSelector: '.popup__form_set',
+    formFieldsetSelector: '.popup__form-set',
     inputSelector: '.popup__form-input',
     submitButtonSelector: '.popup__form-save',
-    inactiveButtonClass: 'popup__button_disabled',
+    inactiveButtonClass: 'popup__button-disabled',
     inputErrorClass: 'popup__form-input-error',
     errorClass: 'popup__error_visible'
 });
