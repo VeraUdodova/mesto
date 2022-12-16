@@ -1,8 +1,7 @@
 // Объявление переменных
-const popupElement = document.querySelector('.popup');
 const closeButtons = document.querySelectorAll('.popup__close');
-const nameProfileInput = popupElement.querySelector('.popup__form-input_name_username');
-const statusProfileInput = popupElement.querySelector('.popup__form-input_name_status');
+const nameProfileInput = document.querySelector('.popup__form-input_name_username');
+const statusProfileInput = document.querySelector('.popup__form-input_name_status');
 const openProfileButton = document.querySelector('.profile');
 const popupProfileEditButtonElement = openProfileButton.querySelector('.profile__edit-button');
 const popupProfileEditButtonContainer = document.querySelector('.popup__edit-container');
@@ -10,6 +9,7 @@ const profileNewName = document.querySelector('.profile__title');
 const profileNewStatus = document.querySelector('.profile__subtitle');
 const elementsSection = document.querySelector('.elements');
 const popupEditProfile = document.querySelector('.popup-edit-profile-block');
+
 
 //Константы для функции добавления картинок
 const elementTemplate = document.querySelector('#element').content;
@@ -53,16 +53,33 @@ const initialCards = [
     }
 ];
 
-//функция, которая открывает окошко
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
-    console.log('Open popup clicked');
-}
-
 //функция, которая закрывает окошко
 function closePopup(popup) {
     popup.closest('.popup').classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeByEscapeButton);
+    document.removeEventListener('click', closeByOverlay);
     console.log('Close popup clicked');
+}
+
+const closeByEscapeButton = function (event) {
+    if (event.key === 'Escape') {
+        closePopup(document.querySelector('.popup_opened'))
+    }
+}
+
+const closeByOverlay = function (event) {
+    if (event.target.classList.contains('popup_opened')) {
+        closePopup(document.querySelector('.popup_opened'))
+    }
+}
+
+
+//функция, которая открывает окошко
+function openPopup(popup) {
+    popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeByEscapeButton);
+    document.addEventListener('click', closeByOverlay);
+    console.log('Open popup clicked');
 }
 
 //Добавление структуры для картинок
@@ -92,7 +109,7 @@ function createCard(name, link) {
 }
 
 //Функция добавления карточки в DOM
-function prependCard(card){
+function prependCard(card) {
     elementsSection.prepend(card);
 }
 
@@ -133,7 +150,7 @@ closeButtons.forEach((button) => {
 });
 
 //Функция добавления первых 6 элементов
-for (let i = 0; i <initialCards.length; i = i + 1) {
+for (let i = 0; i < initialCards.length; i = i + 1) {
     prependCard(createCard(initialCards[i].name, initialCards[i].link));
 }
 

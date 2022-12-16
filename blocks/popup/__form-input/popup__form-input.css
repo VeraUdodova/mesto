@@ -1,4 +1,5 @@
 .popup__form-input{
+    padding: 0 0 8px;
     display: flex;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
@@ -7,19 +8,20 @@
     line-height: 17px;
     color: #000000;
     width: 358px;
-    margin: 0 0 22px;
     border: none;
-    padding:8px 0;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
-
-/*.popup__form-input:focus{*/
-/*    width: 238px;*/
-/*}*/
 
 @media screen and (max-width: 950px) {
     .popup__form-input{
         max-width: 238px;
-        margin-bottom: 20px;
     }
+}
+
+.popup__form-input::placeholder{
+    color: #C4C4C4
+}
+
+.popup__form-input:focus{
+    outline: none;
 }
