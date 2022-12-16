@@ -2,19 +2,17 @@
 const closeButtons = document.querySelectorAll('.popup__close');
 const nameProfileInput = document.querySelector('.popup__form-input_name_username');
 const statusProfileInput = document.querySelector('.popup__form-input_name_status');
-const openProfileButton = document.querySelector('.profile');
-const popupProfileEditButtonElement = openProfileButton.querySelector('.profile__edit-button');
+const popupProfileEditButton = document.querySelector('.profile__edit-button');
 const popupProfileEditButtonContainer = document.querySelector('.popup__edit-container');
-const profileNewName = document.querySelector('.profile__title');
-const profileNewStatus = document.querySelector('.profile__subtitle');
+const profileName = document.querySelector('.profile__title');
+const profileStatus = document.querySelector('.profile__subtitle');
 const elementsSection = document.querySelector('.elements');
 const popupEditProfile = document.querySelector('.popup-edit-profile-block');
-
 
 //Константы для функции добавления картинок
 const elementTemplate = document.querySelector('#element').content;
 const popupAddPhoto = document.querySelector('.popup-add-photo-block');
-const openAddImageButtonElement = document.querySelector('.profile__add-photo-button');
+const openAddImageButton = document.querySelector('.profile__add-photo-button');
 const popupAddImageButtonContainer = document.querySelector('.popup__add-container');
 const addImageTitleInput = document.querySelector('.popup__form-input_name_new-pic-title');
 const addImageUrlInput = document.querySelector('.popup__form-input_name_new-pic-url');
@@ -56,56 +54,59 @@ const initialCards = [
 //функция, которая закрывает окошко
 function closePopup(popup) {
     popup.closest('.popup').classList.remove('popup_opened');
-    document.removeEventListener('keydown', closeByEscapeButton);
-    document.removeEventListener('click', closeByOverlay);
+    document.removeEventListener('keydown', closePopupByEscape);
+    document.removeEventListener('click', closePopupByOverlayClick);
     console.log('Close popup clicked');
 }
 
-const closeByEscapeButton = function (event) {
+//Закрытие popup при нажатии на клавишу Esc
+const closePopupByEscape = function (event) {
     if (event.key === 'Escape') {
         closePopup(document.querySelector('.popup_opened'))
     }
 }
 
-const closeByOverlay = function (event) {
+//Закрытие popup по клику на пустое поле
+const closePopupByOverlayClick = function (event) {
     if (event.target.classList.contains('popup_opened')) {
         closePopup(document.querySelector('.popup_opened'))
     }
 }
 
-
 //функция, которая открывает окошко
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    document.addEventListener('keydown', closeByEscapeButton);
-    document.addEventListener('click', closeByOverlay);
+    document.addEventListener('keydown', closePopupByEscape);
+    document.addEventListener('click', closePopupByOverlayClick);
     console.log('Open popup clicked');
 }
 
 //Добавление структуры для картинок
 function createCard(name, link) {
-    const newPicCardElement = elementTemplate.querySelector('.element').cloneNode(true)
-    const trashButton = newPicCardElement.querySelector('.element__trash-button');
-    const imgButton = newPicCardElement.querySelector('.element__img-button');
-    const imgElement = newPicCardElement.querySelector('.element__photo');
+    const newCardElement = elementTemplate.querySelector('.element').cloneNode(true)
+    const trashButton = newCardElement.querySelector('.element__trash-button');
+    const imgButton = newCardElement.querySelector('.element__img-button');
+    const imgElement = newCardElement.querySelector('.element__photo');
+    const h2Element = newCardElement.querySelector('.element__name');
+    const likeButton = newCardElement.querySelector('.element__like-button');
+
     imgElement.src = link;
     imgElement.alt = name;
-    const h2Element = newPicCardElement.querySelector('.element__name');
     h2Element.textContent = name;
-    const likeButton = newPicCardElement.querySelector('.element__like-button');
+
     //Удаляем картинку по нажатию на корзину
     trashButton.addEventListener('click', handleImageDelete);
     //добавляем действие по клику на картинку
-    imgButton.addEventListener("click", function () {
-        handleImageFullsizeOpen(name, link);
+    imgButton.addEventListener('click', function () {
+        handleImageFullSizeOpen(name, link);
     })
     //Нажатие на сердечко
     likeButton.addEventListener('click', function (event) {
-            event.target.classList.toggle('elements__like-button_active');
-            console.log('Like clicked');
-        }
-    )
-    return newPicCardElement
+        event.target.classList.toggle('elements__like-button_active');
+        console.log('Like clicked');
+    })
+
+    return newCardElement
 }
 
 //Функция добавления карточки в DOM
@@ -116,8 +117,8 @@ function prependCard(card) {
 // кнопка "Сохранить"
 const handleEditFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-    profileNewName.textContent = nameProfileInput.value;
-    profileNewStatus.textContent = statusProfileInput.value;
+    profileName.textContent = nameProfileInput.value;
+    profileStatus.textContent = statusProfileInput.value;
     closePopup(event.target);
 }
 
@@ -137,7 +138,7 @@ const handleImageDelete = function (event) {
 }
 
 //Открываем полноразмерную картинку
-const handleImageFullsizeOpen = function (name, link) {
+const handleImageFullSizeOpen = function (name, link) {
     imgFullSizeElement.src = link;
     imgFullSizeElement.alt = name;
     titleFullSizeElement.textContent = name;
@@ -150,18 +151,18 @@ closeButtons.forEach((button) => {
 });
 
 //Функция добавления первых 6 элементов
-for (let i = 0; i < initialCards.length; i = i + 1) {
-    prependCard(createCard(initialCards[i].name, initialCards[i].link));
-}
+initialCards.forEach((card) => {
+    prependCard(createCard(card.name, card.link));
+});
 
 //обработчик события
-popupProfileEditButtonElement.addEventListener('click', function () {
-    nameProfileInput.value = profileNewName.textContent;
-    statusProfileInput.value = profileNewStatus.textContent;
+popupProfileEditButton.addEventListener('click', function () {
+    nameProfileInput.value = profileName.textContent;
+    statusProfileInput.value = profileStatus.textContent;
     openPopup(popupEditProfile)
 });
 
-openAddImageButtonElement.addEventListener('click', function () {
+openAddImageButton.addEventListener('click', function () {
     openPopup(popupAddPhoto)
 });
 
