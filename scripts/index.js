@@ -18,7 +18,7 @@ const addImageTitleInput = document.querySelector('.popup__form-input_name_new-p
 const addImageUrlInput = document.querySelector('.popup__form-input_name_new-pic-url');
 
 //Константы для полноразмерных картинок
-const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block')
+const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block');
 const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
 const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
 
@@ -55,7 +55,7 @@ const initialCards = [
 function closePopup(popup) {
     popup.closest('.popup').classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEscape);
-    document.removeEventListener('click', closePopupByOverlayClick);
+    document.removeEventListener('mousedown', closePopupByOverlayClick);
     console.log('Close popup clicked');
 }
 
@@ -69,7 +69,7 @@ const closePopupByEscape = function (event) {
 //Закрытие popup по клику на пустое поле
 const closePopupByOverlayClick = function (event) {
     if (event.target.classList.contains('popup_opened')) {
-        closePopup(document.querySelector('.popup_opened'))
+        closePopup(event.target)
     }
 }
 
@@ -77,13 +77,13 @@ const closePopupByOverlayClick = function (event) {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEscape);
-    document.addEventListener('click', closePopupByOverlayClick);
+    document.addEventListener('mousedown', closePopupByOverlayClick);
     console.log('Open popup clicked');
 }
 
 //Добавление структуры для картинок
 function createCard(name, link) {
-    const newCardElement = elementTemplate.querySelector('.element').cloneNode(true)
+    const newCardElement = elementTemplate.querySelector('.element').cloneNode(true);
     const trashButton = newCardElement.querySelector('.element__trash-button');
     const imgButton = newCardElement.querySelector('.element__img-button');
     const imgElement = newCardElement.querySelector('.element__photo');
@@ -126,9 +126,10 @@ const handleEditFormSubmit = function (event) {
 const handleAddFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     prependCard(createCard(addImageTitleInput.value, addImageUrlInput.value));
-    event.target.reset()
+    event.target.reset();
+    console.log(event.target);
     closePopup(event.target);
-    console.log('New picture added')
+    console.log('New picture added');
 }
 
 //Удаление картинки по нажатию на корзину
