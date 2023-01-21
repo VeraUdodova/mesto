@@ -20,10 +20,15 @@ const popupAddImageButtonContainer = document.querySelector('.popup__add-contain
 const addImageTitleInput = document.querySelector('.popup__form-input_name_new-pic-title');
 const addImageUrlInput = document.querySelector('.popup__form-input_name_new-pic-url');
 
-//Константы для полноразмерных картинок
-// const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block');
-// const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
-// const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
+//Константы для валидации
+const formInputElements = {
+    formFieldsetSelector: '.popup__form-set',
+    inputSelector: '.popup__form-input',
+    submitButtonSelector: '.popup__form-save',
+    inactiveButtonClass: 'popup__button-disabled',
+    inputErrorClass: 'popup__form-input-error',
+    errorClass: 'popup__error_visible'
+}
 
 
 //Первые 6 картинок
@@ -84,33 +89,6 @@ export function openPopup(popup) {
     console.log('Open popup clicked');
 }
 
-//Добавление структуры для картинок
-// function createCard(name, link) {
-//     const newCardElement = elementTemplate.querySelector('.element').cloneNode(true);
-//     const trashButton = newCardElement.querySelector('.element__trash-button');
-//     const imgButton = newCardElement.querySelector('.element__img-button');
-//     const imgElement = newCardElement.querySelector('.element__photo');
-//     const h2Element = newCardElement.querySelector('.element__name');
-//     const likeButton = newCardElement.querySelector('.element__like-button');
-//
-//     imgElement.src = link;
-//     imgElement.alt = name;
-//     h2Element.textContent = name;
-//
-//     //Удаляем картинку по нажатию на корзину
-//     trashButton.addEventListener('click', handleImageDelete);
-//     //добавляем действие по клику на картинку
-//     imgButton.addEventListener('click', function () {
-//         handleImageFullSizeOpen(name, link);
-//     })
-//     //Нажатие на сердечко
-//     likeButton.addEventListener('click', function (event) {
-//         event.target.classList.toggle('elements__like-button_active');
-//         console.log('Like clicked');
-//     })
-//
-//     return newCardElement
-// }
 
 //Функция добавления карточки в DOM
 function prependCard(card) {
@@ -136,19 +114,6 @@ const handleAddFormSubmit = function (event) {
     console.log('New picture added');
 }
 
-//Удаление картинки по нажатию на корзину
-// const handleImageDelete = function (event) {
-//     event.target.closest('.element').remove();
-//     console.log('delete clicked');
-// }
-//
-// //Открываем полноразмерную картинку
-// const handleImageFullSizeOpen = function (name, link) {
-//     imgFullSizeElement.src = link;
-//     imgFullSizeElement.alt = name;
-//     titleFullSizeElement.textContent = name;
-//     openPopup(popupFullSizeSection);
-// }
 
 // функция закрытия окна по нажатию на крестик
 closeButtons.forEach((button) => {
@@ -160,6 +125,14 @@ initialCards.forEach((card) => {
     const cardElement =  new Card(card.name, card.link, elementTemplate)
     prependCard(cardElement.createCard());
 });
+
+//Валидация форм
+const addFormValidator = new FormValidator(formInputElements,'.popup__add-form')
+addFormValidator.enableValidation()
+
+const editFormValidator = new FormValidator(formInputElements,'.popup__edit-form')
+editFormValidator.enableValidation()
+
 
 //обработчик события
 popupProfileEditButton.addEventListener('click', function () {
