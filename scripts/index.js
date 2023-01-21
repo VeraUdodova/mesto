@@ -1,4 +1,5 @@
 import {Card} from './Card.js'
+// import {FormValidator} from './FormValidator.js'
 
 // Объявление переменных
 const closeButtons = document.querySelectorAll('.popup__close');
