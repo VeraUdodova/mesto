@@ -67,8 +67,8 @@ const initialCards = [
 
 //функция, которая закрывает окошко
 function closePopup(popup) {
-    popup.closest('.popup').classList.remove('popup_opened');
-    // popup.classList.remove('popup_opened');
+    // popup.closest('.popup').classList.remove('popup_opened');
+    popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEscape);
     document.removeEventListener('mousedown', closePopupByOverlayClick);
 }
@@ -83,7 +83,7 @@ const closePopupByEscape = function (event) {
 //Закрытие popup по клику на пустое поле
 const closePopupByOverlayClick = function (event) {
     if (event.target.classList.contains('popup_opened')) {
-        closePopup(event.target)
+        closePopup(document.querySelector('.popup_opened'))
     }
 }
 
@@ -113,7 +113,7 @@ const handleEditFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     profileName.textContent = nameProfileInput.value;
     profileStatus.textContent = statusProfileInput.value;
-    closePopup(event.target);
+    closePopup(popupEditProfile);
 }
 
 // кнопка "Создать" для добавления новых картинок
@@ -122,13 +122,15 @@ const handleAddFormSubmit = function (event) {
     const cardElement =  new Card(addImageTitleInput.value, addImageUrlInput.value, selectorTemplate, handleImageFullSizeOpen)
     prependCard(cardElement.createCard());
     // event.target.reset();
-    closePopup(event.target);
+    closePopup(popupAddPhoto);
 }
 
 
 // функция закрытия окна по нажатию на крестик
 closeButtons.forEach((button) => {
-    button.addEventListener('click', () => closePopup(button));
+    button.addEventListener('click', () => {
+        closePopup(document.querySelector('.popup_opened'))
+    });
 });
 
 //Функция добавления первых 6 элементов
