@@ -1,10 +1,11 @@
-import {openPopup} from "./index.js";
+// import {openPopup} from "./index.js";
 
 export class Card {
-    constructor(name, link, elementTemplate) {
+    constructor(name, link, selectorTemplate, handleImageFullSizeOpen) {
         this._name = name;
         this._link = link;
-        this._elementTemplate = elementTemplate;
+        this._elementTemplate = document.querySelector(selectorTemplate).content;
+        this._handleImageFullSizeOpen = handleImageFullSizeOpen;
     }
 
     //Добавление структуры для картинок
@@ -27,7 +28,7 @@ export class Card {
     _setEventListeners() {
         const trashButton = this._newCardElement.querySelector('.element__trash-button');
         const imgButton = this._newCardElement.querySelector('.element__img-button');
-        const likeButton = this._newCardElement.querySelector('.element__like-button');
+        this._likeButton = this._newCardElement.querySelector('.element__like-button');
 
         //Удаляем картинку по нажатию на корзину
         trashButton.addEventListener('click', (event) => {
@@ -36,11 +37,11 @@ export class Card {
 
         //добавляем действие по клику на картинку
         imgButton.addEventListener('click', () => {
-            this._handleImageFullSizeOpen()
+            this._handleImageFullSizeOpen(this._name, this._link)
         });
 
         //Нажатие на сердечко
-        likeButton.addEventListener('click', (event) => {
+        this._likeButton.addEventListener('click', (event) => {
             this._handleLikeAction(event);
         })
     }
@@ -48,25 +49,22 @@ export class Card {
 
     //Удаление картинки по нажатию на корзину
     _handleImageDelete(event) {
-        event.target.closest('.element').remove();
-        console.log('delete clicked');
+        // event.target.closest('.element').remove();
+        this._newCardElement.remove();
+        this._newCardElement = null
     }
 
-    //Открываем полноразмерную картинку
-    _handleImageFullSizeOpen() {
-        const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block');
-        const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
-        const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
-        imgFullSizeElement.src = this._link;
-        imgFullSizeElement.alt = this._name;
-        titleFullSizeElement.textContent = this._name;
-        openPopup(popupFullSizeSection);
-    }
+    // //Открываем полноразмерную картинку
+    // _handleImageFullSizeOpen() {
+    //     imgFullSizeElement.src = this._link;
+    //     imgFullSizeElement.alt = this._name;
+    //     titleFullSizeElement.textContent = this._name;
+    //     openPopup(popupFullSizeSection);
+    // }
 
     //Ставим лайк
     _handleLikeAction(event) {
-        event.target.classList.toggle('elements__like-button_active');
-        console.log('Like clicked');
+        this._likeButton.classList.toggle('elements__like-button_active');
     }
 }
 

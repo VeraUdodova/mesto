@@ -11,18 +11,24 @@ const profileName = document.querySelector('.profile__title');
 const profileStatus = document.querySelector('.profile__subtitle');
 const elementsSection = document.querySelector('.elements');
 const popupEditProfile = document.querySelector('.popup-edit-profile-block');
+const formAddElement = document.querySelector('.popup__add-form');
+const formEditElement = document.querySelector('.popup__edit-form');
 
 //Константы для функции добавления картинок
-const elementTemplate = document.querySelector('#element').content;
+const selectorTemplate = '#element';
 const popupAddPhoto = document.querySelector('.popup-add-photo-block');
 const openAddImageButton = document.querySelector('.profile__add-photo-button');
 const popupAddImageButtonContainer = document.querySelector('.popup__add-container');
 const addImageTitleInput = document.querySelector('.popup__form-input_name_new-pic-title');
 const addImageUrlInput = document.querySelector('.popup__form-input_name_new-pic-url');
 
+//Константы для полноразмерной картинки
+const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block');
+const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
+const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
+
 //Константы для валидации
 const formInputElements = {
-    formFieldsetSelector: '.popup__form-set',
     inputSelector: '.popup__form-input',
     submitButtonSelector: '.popup__form-save',
     inactiveButtonClass: 'popup__button-disabled',
@@ -62,9 +68,9 @@ const initialCards = [
 //функция, которая закрывает окошко
 function closePopup(popup) {
     popup.closest('.popup').classList.remove('popup_opened');
+    // popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEscape);
     document.removeEventListener('mousedown', closePopupByOverlayClick);
-    console.log('Close popup clicked');
 }
 
 //Закрытие popup при нажатии на клавишу Esc
@@ -82,11 +88,18 @@ const closePopupByOverlayClick = function (event) {
 }
 
 //функция, которая открывает окошко
-export function openPopup(popup) {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEscape);
-    document.addEventListener('mousedown', closePopupByOverlayClick);
-    console.log('Open popup clicked');
+    popup.addEventListener('mousedown', closePopupByOverlayClick);
+}
+
+//Открываем полноразмерную картинку
+function handleImageFullSizeOpen(name, link) {
+    imgFullSizeElement.src = link;
+    imgFullSizeElement.alt = name;
+    titleFullSizeElement.textContent = name;
+    openPopup(popupFullSizeSection);
 }
 
 
@@ -106,12 +119,10 @@ const handleEditFormSubmit = function (event) {
 // кнопка "Создать" для добавления новых картинок
 const handleAddFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-    const cardElement =  new Card(addImageTitleInput.value, addImageUrlInput.value, elementTemplate)
+    const cardElement =  new Card(addImageTitleInput.value, addImageUrlInput.value, selectorTemplate, handleImageFullSizeOpen)
     prependCard(cardElement.createCard());
-    event.target.reset();
-    console.log(event.target);
+    // event.target.reset();
     closePopup(event.target);
-    console.log('New picture added');
 }
 
 
@@ -122,16 +133,16 @@ closeButtons.forEach((button) => {
 
 //Функция добавления первых 6 элементов
 initialCards.forEach((card) => {
-    const cardElement =  new Card(card.name, card.link, elementTemplate)
+    const cardElement =  new Card(card.name, card.link, selectorTemplate, handleImageFullSizeOpen)
     prependCard(cardElement.createCard());
 });
 
 //Валидация форм
-const addFormValidator = new FormValidator(formInputElements,'.popup__add-form')
-addFormValidator.enableValidation()
+const formAddValidator = new FormValidator(formInputElements,formAddElement)
+formAddValidator.enableValidation()
 
-const editFormValidator = new FormValidator(formInputElements,'.popup__edit-form')
-editFormValidator.enableValidation()
+const formEditValidator = new FormValidator(formInputElements,formEditElement)
+formEditValidator.enableValidation()
 
 
 //обработчик события
@@ -142,6 +153,8 @@ popupProfileEditButton.addEventListener('click', function () {
 });
 
 openAddImageButton.addEventListener('click', function () {
+    formAddElement.reset();
+    formAddElement.querySelector("button[type='submit']").setAttribute('disabled', 'disabled')
     openPopup(popupAddPhoto)
 });
 
