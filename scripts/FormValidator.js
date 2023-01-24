@@ -47,12 +47,6 @@ export class FormValidator {
         this._buttonElement = this._formElement.querySelector(this._obj.submitButtonSelector);
         this._toggleButtonState();
 
-        // this._formElement.addEventListener('reset', () => {
-        //     setTimeout(() => {
-        //         this._toggleButtonState();
-        //     }, 0);
-        // });
-
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._inputElement = inputElement;
@@ -63,6 +57,14 @@ export class FormValidator {
     };
 
     enableValidation() {
-            this._setEventListeners();
+        this._setEventListeners();
     };
+
+    resetValidation() {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
+            this._inputElement = inputElement;
+            this._hideInputError()
+        });
+    }
 }

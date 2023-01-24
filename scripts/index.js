@@ -36,7 +36,6 @@ const formInputElements = {
     errorClass: 'popup__error_visible'
 }
 
-
 //Первые 6 картинок
 const initialCards = [
     {
@@ -67,10 +66,8 @@ const initialCards = [
 
 //функция, которая закрывает окошко
 function closePopup(popup) {
-    // popup.closest('.popup').classList.remove('popup_opened');
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEscape);
-    document.removeEventListener('mousedown', closePopupByOverlayClick);
 }
 
 //Закрытие popup при нажатии на клавишу Esc
@@ -91,7 +88,6 @@ const closePopupByOverlayClick = function (event) {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEscape);
-    popup.addEventListener('mousedown', closePopupByOverlayClick);
 }
 
 //Открываем полноразмерную картинку
@@ -101,7 +97,6 @@ function handleImageFullSizeOpen(name, link) {
     titleFullSizeElement.textContent = name;
     openPopup(popupFullSizeSection);
 }
-
 
 //Функция добавления карточки в DOM
 function prependCard(card) {
@@ -116,47 +111,48 @@ const handleEditFormSubmit = function (event) {
     closePopup(popupEditProfile);
 }
 
+function createCard(name, link) {
+    const cardElement = new Card(name, link, selectorTemplate, handleImageFullSizeOpen)
+    return cardElement.createCard()
+}
+
 // кнопка "Создать" для добавления новых картинок
 const handleAddFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-    const cardElement =  new Card(addImageTitleInput.value, addImageUrlInput.value, selectorTemplate, handleImageFullSizeOpen)
-    prependCard(cardElement.createCard());
-    // event.target.reset();
+    prependCard(createCard(addImageTitleInput.value, addImageUrlInput.value));
     closePopup(popupAddPhoto);
 }
 
-
-// функция закрытия окна по нажатию на крестик
-closeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        closePopup(document.querySelector('.popup_opened'))
-    });
-});
+// функция закрытия окна по нажатию на крестик и overlay
+closeButtons.forEach(button => {
+    const popup = button.closest('.popup');
+    popup.addEventListener('mousedown', closePopupByOverlayClick);
+    button.addEventListener('click', () => closePopup(popup));
+})
 
 //Функция добавления первых 6 элементов
 initialCards.forEach((card) => {
-    const cardElement =  new Card(card.name, card.link, selectorTemplate, handleImageFullSizeOpen)
-    prependCard(cardElement.createCard());
+    prependCard(createCard(card.name, card.link));
 });
 
 //Валидация форм
-const formAddValidator = new FormValidator(formInputElements,formAddElement)
+const formAddValidator = new FormValidator(formInputElements, formAddElement)
 formAddValidator.enableValidation()
 
-const formEditValidator = new FormValidator(formInputElements,formEditElement)
+const formEditValidator = new FormValidator(formInputElements, formEditElement)
 formEditValidator.enableValidation()
-
 
 //обработчик события
 popupProfileEditButton.addEventListener('click', function () {
     nameProfileInput.value = profileName.textContent;
     statusProfileInput.value = profileStatus.textContent;
+    formEditValidator.resetValidation();
     openPopup(popupEditProfile)
 });
 
 openAddImageButton.addEventListener('click', function () {
     formAddElement.reset();
-    formAddElement.querySelector("button[type='submit']").setAttribute('disabled', 'disabled')
+    formAddValidator.resetValidation();
     openPopup(popupAddPhoto)
 });
 

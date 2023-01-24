@@ -1,5 +1,3 @@
-// import {openPopup} from "./index.js";
-
 export class Card {
     constructor(name, link, selectorTemplate, handleImageFullSizeOpen) {
         this._name = name;
@@ -46,25 +44,14 @@ export class Card {
         })
     }
 
-
     //Удаление картинки по нажатию на корзину
-    _handleImageDelete(event) {
-        // event.target.closest('.element').remove();
+    _handleImageDelete() {
         this._newCardElement.remove();
         this._newCardElement = null
     }
 
-    // //Открываем полноразмерную картинку
-    // _handleImageFullSizeOpen() {
-    //     imgFullSizeElement.src = this._link;
-    //     imgFullSizeElement.alt = this._name;
-    //     titleFullSizeElement.textContent = this._name;
-    //     openPopup(popupFullSizeSection);
-    // }
-
     //Ставим лайк
-    _handleLikeAction(event) {
+    _handleLikeAction() {
         this._likeButton.classList.toggle('elements__like-button_active');
     }
 }
-
