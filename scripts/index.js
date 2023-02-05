@@ -1,5 +1,7 @@
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js'
+import {Section} from './Section.js'
+// import {Popup} from './Popup.js'
 
 // Объявление переменных
 const closeButtons = document.querySelectorAll('.popup__close');
@@ -9,7 +11,7 @@ const popupProfileEditButton = document.querySelector('.profile__edit-button');
 const popupProfileEditButtonContainer = document.querySelector('.popup__edit-container');
 const profileName = document.querySelector('.profile__title');
 const profileStatus = document.querySelector('.profile__subtitle');
-const elementsSection = document.querySelector('.elements');
+const selectorElements = '.elements';
 const popupEditProfile = document.querySelector('.popup-edit-profile-block');
 const formAddElement = document.querySelector('.popup__add-form');
 const formEditElement = document.querySelector('.popup__edit-form');
@@ -98,11 +100,6 @@ function handleImageFullSizeOpen(name, link) {
     openPopup(popupFullSizeSection);
 }
 
-//Функция добавления карточки в DOM
-function prependCard(card) {
-    elementsSection.prepend(card);
-}
-
 // кнопка "Сохранить"
 const handleEditFormSubmit = function (event) {
     event.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -111,10 +108,6 @@ const handleEditFormSubmit = function (event) {
     closePopup(popupEditProfile);
 }
 
-function createCard(name, link) {
-    const cardElement = new Card(name, link, selectorTemplate, handleImageFullSizeOpen)
-    return cardElement.createCard()
-}
 
 // кнопка "Создать" для добавления новых картинок
 const handleAddFormSubmit = function (event) {
@@ -130,10 +123,6 @@ closeButtons.forEach(button => {
     button.addEventListener('click', () => closePopup(popup));
 })
 
-//Функция добавления первых 6 элементов
-initialCards.forEach((card) => {
-    prependCard(createCard(card.name, card.link));
-});
 
 //Валидация форм
 const formAddValidator = new FormValidator(formInputElements, formAddElement)
@@ -159,3 +148,28 @@ openAddImageButton.addEventListener('click', function () {
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
 popupProfileEditButtonContainer.addEventListener('submit', handleEditFormSubmit);
 popupAddImageButtonContainer.addEventListener('submit', handleAddFormSubmit);
+
+//Функция добавления карточки в DOM
+//убрано в Section
+/*function prependCard(card) {
+    elementsSection.prepend(card);
+}
+//Функция добавления первых 6 элементов
+initialCards.forEach((card) => {
+    prependCard(createCard(card.name, card.link));
+});
+
+function createCard(name, link) {
+    const cardElement = new Card(name, link, selectorTemplate, handleImageFullSizeOpen)
+    return cardElement.createCard()
+}*/
+
+const cardsList = new Section({
+    items: initialCards, renderer: ({name, link}) => {
+        const cardElement = new Card(name, link, selectorTemplate, handleImageFullSizeOpen)
+        cardsList.addItem(cardElement.createCard())
+    }
+},
+    selectorElements
+);
+cardsList.renderItems()
