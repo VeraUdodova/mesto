@@ -3,6 +3,7 @@ import {Card} from './Card.js'
 import {Section} from './Section.js'
 import {PopupWithForm} from "./PopupWithForm.js";
 import {UserInfo} from "./UserInfo.js";
+import {PopupWithImage} from "./PopupWithImage.js";
 // import {Popup} from './Popup.js'
 
 // Объявление переменных
@@ -27,7 +28,7 @@ const addImageTitleInput = document.querySelector('.popup__form-input_name_new-p
 const addImageUrlInput = document.querySelector('.popup__form-input_name_new-pic-url');
 
 //Константы для полноразмерной картинки
-const popupFullSizeSection = document.querySelector('.popup-fullsize-pic-block');
+const popupFullSizeSelector = '.popup-fullsize-pic-block';
 const imgFullSizeElement = document.querySelector('.popup__fullsize-pic-image');
 const titleFullSizeElement = document.querySelector('.popup__fullsize-pic-title');
 
@@ -118,19 +119,7 @@ const initialCards = [
 // const formEditValidator = new FormValidator(formInputElements, formEditSelector)
 // formEditValidator.enableValidation()
 
-//обработчик события
-// popupProfileEditButton.addEventListener('click', function () {
-//     nameProfileInput.value = profileNameSelector.textContent;
-//     statusProfileInput.value = profileStatusSelector.textContent;
-//     formEditValidator.resetValidation();
-//     openPopup(popupEditProfile)
-// });
 
-// openAddImageButton.addEventListener('click', function () {
-//     formAddSelector.reset();
-//     formAddValidator.resetValidation();
-//     openPopup(popupAddPhoto)
-// });
 
 // Прикрепляем обработчик к форме: он будет следить за событием “submit” - «отправка»
 // popupProfileEditButtonContainer.addEventListener('submit', handleEditFormSubmit);
@@ -153,7 +142,10 @@ function createCard(name, link) {
 
 const cardsList = new Section({
         items: initialCards, renderer: ({name, link}) => {
-            const cardElement = new Card(name, link, selectorTemplate, ()=>{})
+            const cardElement = new Card(name, link, selectorTemplate, (name, link)=>{
+                const imagePopup=new PopupWithImage(popupFullSizeSelector)
+                imagePopup.open(name, link)
+            })
             cardsList.addItem(cardElement.createCard())
         }
     },
@@ -177,7 +169,7 @@ cardsList.renderItems()
 //     closePopup(popupAddPhoto);
 // }
 
-const userInfo = new UserInfo({profileNameSelector, profileStatusSelector})
+const userInfo = new UserInfo({nameSelector:profileNameSelector, infoSelector:profileStatusSelector})
 
 const formEditPopup = new PopupWithForm(formEditSelector, (event) => {
     event.preventDefault();
@@ -193,6 +185,25 @@ const formAddPopup = new PopupWithForm(formAddSelector, (event) => {
     cardsList.addItem(cardElement.createCard())
     this.close()
 })
+
+
+// обработчик события
+popupProfileEditButton.addEventListener('click', function () {
+    formEditPopup.open()
+    const {name,info} = userInfo.getUserInfo()
+    nameProfileInput.value = name;
+    statusProfileInput.value = info;
+//     formEditValidator.resetValidation();
+//     openPopup(popupEditProfile)
+});
+
+openAddImageButton.addEventListener('click', function () {
+    formAddPopup.open()
+    // formAddSelector.reset();
+    // formAddValidator.resetValidation();
+    // openPopup(popupAddPhoto)
+});
+
 
 formEditPopup.setEventListeners()
 formAddPopup.setEventListeners()

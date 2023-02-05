@@ -1,9 +1,9 @@
 export class Card {
-    constructor(name, link, selectorTemplate, handleImageFullSizeOpen) {
+    constructor(name, link, selectorTemplate, handleCardClick) {
         this._name = name;
         this._link = link;
         this._elementTemplate = document.querySelector(selectorTemplate).content;
-        this._handleImageFullSizeOpen = handleImageFullSizeOpen;
+        this._handleCardClick = handleCardClick;
     }
 
     //Добавление структуры для картинок
@@ -35,7 +35,7 @@ export class Card {
 
         //добавляем действие по клику на картинку
         imgButton.addEventListener('click', () => {
-            this._handleImageFullSizeOpen(this._name, this._link)
+            this._handleCardClick(this._name, this._link)
         });
 
         //Нажатие на сердечко
