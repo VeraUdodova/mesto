@@ -1,5 +1,5 @@
 import {FormValidator} from './FormValidator.js'
-import {formInputElements} from './index.js'
+import {formInputElements} from './Constants.js'
 import {Popup} from './Popup.js'
 
 export class PopupWithForm extends Popup {
@@ -8,15 +8,14 @@ export class PopupWithForm extends Popup {
         this._submit = submit;
         this._popupContainer = this._popup.querySelector('.popup__container');
         this._popupForm = this._popup.querySelector('.popup__form');
-        console.log(formInputElements)
-        console.log(this._popupForm)
         this._formValidator = new FormValidator(formInputElements, this._popupForm)
         this._formInputs = this._popup.querySelectorAll('.popup__form-input');
+        this._formValidator.enableValidation()
     }
 
     _getInputValues() {
-        this._dataInputs=[]
-        this._formInputs.forEach(input=> {
+        this._dataInputs = []
+        this._formInputs.forEach(input => {
             this._dataInputs.push(input.value)
         })
     }
@@ -30,10 +29,5 @@ export class PopupWithForm extends Popup {
         super.close();
         this._popupForm.reset();
         this._formValidator.resetValidation()
-    }
-
-    open() {
-        super.open();
-        // this._formValidator.resetValidation()
     }
 }
