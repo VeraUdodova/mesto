@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Фото Сервис</title>
-    <link rel="stylesheet" href="pages/index.css">
+<!--    <link rel="stylesheet" href="styles/index.css">-->
 </head>
 <body class="page">
 
@@ -14,7 +14,7 @@
 </header>
 
 <section class="profile">
-    <img class="profile__photo" src="images/avatar-custo.jpg" alt="Фотография пользователя">
+    <img class="profile__photo" src="<%=require('./images/avatar-custo.jpg')%>" alt="Фотография пользователя">
     <div class="profile__info">
         <div class="profile__edit">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -115,7 +115,7 @@
 <div class="popup popup-fullsize-pic-block">
     <div class="popup__fullsize-pic-container">
         <button type="button" class="popup__fullsize-pic-close popup__close"></button>
-        <img class="popup__fullsize-pic-image" src="https://ya.ru" alt="">
+        <img class="popup__fullsize-pic-image" src="" alt="">
         <h2 class="popup__fullsize-pic-title"></h2>
     </div>
 </div>
@@ -124,7 +124,7 @@
     <article class="element">
         <button class="element__trash-button" type="button"></button>
         <button class="element__img-button" type="button">
-            <img class="element__photo" src="https://ya.ru" alt="text">
+            <img class="element__photo" src="" alt="text">
         </button>
         <div class="element__title">
             <h2 class="element__name"></h2>
@@ -133,7 +133,7 @@
     </article>
 </template>
 
-<script type="module" src="./scripts/index.js"></script>
+<!--<script type="module" src="index.js"></script>-->
 
 
 </body>

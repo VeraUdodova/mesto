@@ -1,9 +1,10 @@
-import {Card} from './Card.js'
-import {Section} from './Section.js'
-import {PopupWithForm} from "./PopupWithForm.js";
-import {UserInfo} from "./UserInfo.js";
-import {PopupWithImage} from "./PopupWithImage.js";
-import {initialCards} from "./Constants.js";
+import {Card} from './scripts/Card.js'
+import {Section} from './scripts/Section.js'
+import {PopupWithForm} from "./scripts/PopupWithForm.js";
+import {UserInfo} from "./scripts/UserInfo.js";
+import {PopupWithImage} from "./scripts/PopupWithImage.js";
+import {initialCards} from "./scripts/Constants.js";
+import './styles/index.css';
 
 // Объявление переменных
 const nameProfileInput = document.querySelector('.popup__form-input_name_username');
