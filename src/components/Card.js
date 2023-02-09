@@ -15,17 +15,17 @@ export class Card {
 
     _createLayout() {
         this._newCardElement = this._elementTemplate.querySelector('.element').cloneNode(true);
-        const imgElement = this._newCardElement.querySelector('.element__photo');
-        const h2Element = this._newCardElement.querySelector('.element__name');
+        this._imgElement = this._newCardElement.querySelector('.element__photo');
+        const imgElementTitle = this._newCardElement.querySelector('.element__name');
 
-        imgElement.src = this._link;
-        imgElement.alt = this._name;
-        h2Element.textContent = this._name;
+        this._imgElement.src = this._link;
+        this._imgElement.alt = this._name;
+        imgElementTitle.textContent = this._name;
     }
 
     _setEventListeners() {
         const trashButton = this._newCardElement.querySelector('.element__trash-button');
-        const imgButton = this._newCardElement.querySelector('.element__img-button');
+        // const imgButton = this._newCardElement.querySelector('.element__img-button'); //это не то же самое, что imgElement!!!
         this._likeButton = this._newCardElement.querySelector('.element__like-button');
 
         //Удаляем картинку по нажатию на корзину
@@ -34,7 +34,7 @@ export class Card {
         });
 
         //добавляем действие по клику на картинку
-        imgButton.addEventListener('click', () => {
+        this._imgElement.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link)
         });
 

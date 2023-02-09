@@ -3,7 +3,7 @@ import {Section} from '../components/Section.js'
 import {PopupWithForm} from "../components/PopupWithForm.js";
 import {UserInfo} from "../components/UserInfo.js";
 import {PopupWithImage} from "../components/PopupWithImage.js";
-import {initialCards} from "../components/Constants.js";
+import {initialCards} from "../components/сonstants.js";
 import './index.css';
 
 // Объявление переменных
