@@ -13,8 +13,8 @@ export class UserInfo {
     }
 
 
-    setUserInfo(name, info) {
-        this._nameElement.textContent = name;
-        this._infoElement.textContent = info;
+    setUserInfo({form_profile_name, form_profile_status}) {
+        this._nameElement.textContent = form_profile_name;
+        this._infoElement.textContent = form_profile_status;
     }
 }

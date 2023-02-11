@@ -27,6 +27,7 @@ const cardsList = new Section({
         items: initialCards, renderer: ({name, link}) => {
             const cardElement = new Card(name, link, selectorTemplate, (name, link)=>{
                 const imagePopup=new PopupWithImage(popupFullSizeSelector)
+                imagePopup.setEventListeners()
                 imagePopup.open(name, link)
             })
             cardsList.addItem(cardElement.createCard())
@@ -37,18 +38,15 @@ const cardsList = new Section({
 
 const userInfo = new UserInfo({nameSelector:profileNameSelector, infoSelector:profileStatusSelector})
 
-const formEditPopup = new PopupWithForm(formEditSelector, (event) => {
-    event.preventDefault();
-    formEditPopup._getInputValues();
-    userInfo.setUserInfo(formEditPopup._dataInputs[0], formEditPopup._dataInputs[1])
+const formEditPopup = new PopupWithForm(formEditSelector, (formData) => {
+    userInfo.setUserInfo(formData)
     formEditPopup.close()
 })
 
-const formAddPopup = new PopupWithForm(formAddSelector, (event) => {
-    event.preventDefault();
-    formAddPopup._getInputValues();
-    const cardElement = new Card(formAddPopup._dataInputs[0], formAddPopup._dataInputs[1], selectorTemplate, (name, link)=>{
+const formAddPopup = new PopupWithForm(formAddSelector, (formData) => {
+    const cardElement = new Card(formData.form_place_name, formData.form_place_url, selectorTemplate, (name, link)=>{
         const imagePopup=new PopupWithImage(popupFullSizeSelector)
+        imagePopup.setEventListeners()//TODO и без этого работает
         imagePopup.open(name, link)
     })
     cardsList.addItem(cardElement.createCard())
