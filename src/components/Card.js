@@ -25,7 +25,6 @@ export class Card {
 
     _setEventListeners() {
         const trashButton = this._newCardElement.querySelector('.element__trash-button');
-        // const imgButton = this._newCardElement.querySelector('.element__img-button'); //это не то же самое, что imgElement!!!
         this._likeButton = this._newCardElement.querySelector('.element__like-button');
 
         //Удаляем картинку по нажатию на корзину
