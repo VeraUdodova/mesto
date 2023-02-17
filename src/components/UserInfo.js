@@ -18,4 +18,8 @@ export class UserInfo {
         this._nameElement.textContent = form_profile_name;
         this._infoElement.textContent = form_profile_status;
     }
+
+    setNewAvatar(form_avatar_url){
+        this._avatarElement.src=form_avatar_url
+    }
 }

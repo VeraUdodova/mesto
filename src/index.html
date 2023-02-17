@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Фото Сервис</title>
 </head>
@@ -13,11 +14,14 @@
 </header>
 
 <section class="profile">
-    <img class="profile__photo" src="<%=require('./images/avatar-custo.jpg')%>" alt="Фотография пользователя">
+    <img class="profile__photo"
+         src="<%=require('./images/avatar-custo.jpg')%>"
+         alt="Фотография пользователя">
     <div class="profile__info">
         <div class="profile__edit">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button"></button>
+            <button class="profile__edit-button"
+                    type="button"></button>
         </div>
         <p class="profile__subtitle">Исследователь океана</p>
     </div>
@@ -36,9 +40,12 @@
 <!--    Попап для редактирования профиля-->
 <div class="popup popup-edit-profile-block">
     <div class="popup__container popup__edit-container">
-        <button type="button" class="popup__close popup__edit-close"></button>
-        <h2 class="popup__target popup__edit-target">Редактировать профиль</h2>
-        <form name="form_profile" class="popup__form popup__edit-form" novalidate>
+        <button type="button"
+                class="popup__close popup__edit-close"></button>
+        <h2 class="popup__target popup__edit-target">Редактировать
+            профиль</h2>
+        <form name="form_profile" class="popup__form popup__edit-form"
+              novalidate>
             <div class="popup__form-field">
                 <input
                         type="text"
@@ -67,7 +74,9 @@
                 <span class="popup__span profile-about-error"></span>
             </div>
 
-            <button class="popup__form-save popup__edit-form-save" type="submit">Сохранить</button>
+            <button class="popup__form-save popup__edit-form-save"
+                    type="submit">Сохранить
+            </button>
         </form>
     </div>
 </div>
@@ -75,9 +84,11 @@
 <!--    Попап для добавления фото-->
 <div class="popup popup-add-photo-block">
     <div class="popup__container popup__add-container">
-        <button type="button" class="popup__close popup__add-close"></button>
+        <button type="button"
+                class="popup__close popup__add-close"></button>
         <h2 class="popup__target popup__add-target">Новое место</h2>
-        <form name="form_place" class="popup__form popup__add-form" novalidate>
+        <form name="form_place" class="popup__form popup__add-form"
+              novalidate>
             <div class="popup__form-field">
                 <input
                         type="text"
@@ -104,7 +115,8 @@
                 <span class="popup__span new-photo-url-error"></span>
             </div>
 
-            <button class="popup__form-save popup__add-form-save" type="submit">Создать
+            <button class="popup__form-save popup__add-form-save"
+                    type="submit">Создать
             </button>
         </form>
     </div>
@@ -113,9 +125,55 @@
 <!--  Попап для просмотра увеличенных фото  -->
 <div class="popup popup-fullsize-pic-block">
     <div class="popup__fullsize-pic-container">
-        <button type="button" class="popup__fullsize-pic-close popup__close"></button>
-        <img class="popup__fullsize-pic-image" src="https://ya.ru/" alt="">
+        <button type="button"
+                class="popup__fullsize-pic-close popup__close"></button>
+        <img class="popup__fullsize-pic-image" src="https://ya.ru/"
+             alt="">
         <h2 class="popup__fullsize-pic-title"></h2>
+    </div>
+</div>
+
+<!--Попап предупреждения удаления карточки-->
+<div class="popup popup-warning-block">
+    <div class="popup__container popup__warning-container">
+        <button type="button"
+                class="popup__close popup__warning-close"></button>
+        <form name="form_warning"
+              class="popup__form popup__warning-form"
+              novalidate>
+            <p class="popup__target popup__warning-text">Вы
+                уверены?</p>
+            <button class="popup__form-save popup__warning-button"
+                    type="submit">Да
+            </button>
+        </form>
+    </div>
+</div>
+
+<!--Обновление аватарки-->
+<div class="popup popup-avatar-block">
+    <div class="popup__container popup__avatar-container">
+        <button type="button"
+                class="popup__close popup__avatar-close"></button>
+        <form name="form_avatar"
+              class="popup__form popup__avatar-form"
+              novalidate>
+            <p class="popup__target popup__avatar-text">Обновить аватар</p>
+            <div class="popup__form-field">
+                <input
+                        type="url"
+                        id="new-avatar-url"
+                        name="form_avatar_url"
+                        placeholder="Ссылка на новую аватарку"
+                        class="popup__form-input popup__form-input_new-avatar-url"
+                        required
+                >
+                <span class="popup__span new-avatar-url-error"></span>
+            </div>
+            <button class="popup__form-save popup__avatar-button"
+                    type="submit">Сохранить
+            </button>
+        </form>
     </div>
 </div>
 
@@ -125,7 +183,11 @@
         <img class="element__photo" src="https://ya.ru/" alt="text">
         <div class="element__title">
             <h2 class="element__name"></h2>
-            <button class="element__like-button" type="button"></button>
+            <div class="element__like">
+                <button class="element__like-button"
+                        type="button"></button>
+                <p class="element__likes">0</p>
+            </div>
         </div>
     </article>
 </template>
