@@ -4,16 +4,19 @@ export class Api {
         this._headers = options.headers
     }
 
+    _statusCheck(res){
+        if (res.ok) {
+            return res.json()
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+
+
     _get(link){
         return fetch(`${this._baseUrl}${link}`, {
             headers: this._headers,
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
-            })
+            .then(this._statusCheck)
     }
 
     _save(link, method, body=[]){
@@ -22,12 +25,7 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify(body)
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                return Promise.reject(`Ошибка: ${res.status}`);
-            })
+            .then(this._statusCheck)
     }
 
     getInitialCards() {

@@ -99,8 +99,10 @@ const formEditPopup = new PopupWithForm(formEditSelector,
                 form_profile_status: data.about
             })
             formEditPopup.close()
-            formEditPopup.renderLoading(false)
         }).catch(catchError)
+            .finally(()=>{
+                formEditPopup.renderLoading(false)
+            })
     }, () => {
         formEditValidator.resetValidation();
     })
@@ -113,9 +115,11 @@ const formAddPopup = new PopupWithForm(formAddSelector,
         }).then((data) => {
             cardsList.addItem(createCard(data))
             formAddPopup.close()
-            formAddPopup.renderLoading(false)
         })
             .catch(catchError)
+            .finally(()=>{
+                formAddPopup.renderLoading(false)
+            })
     }, () => {
         formAddValidator.resetValidation();
     })
@@ -126,9 +130,11 @@ const formAvatarPopup = new PopupWithForm(formAvatarSelector,
             .then((data) => {
                 userInfo.setNewAvatar(data.avatar)
                 formAvatarPopup.close()
-                formAvatarPopup.renderLoading(false)
             })
             .catch(catchError)
+            .finally(()=>{
+                formAvatarPopup.renderLoading(false)
+            })
     }, () => {
         formAvatarValidator.resetValidation();
     })
