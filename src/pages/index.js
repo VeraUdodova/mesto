@@ -21,7 +21,7 @@ const popupProfileEditButton = document.querySelector('.profile__edit-button');
 const profileNameSelector = '.profile__title';
 const profileStatusSelector = '.profile__subtitle';
 const profileAvatarSelector = '.profile__photo'
-const profileAvatarElement=document.querySelector(profileAvatarSelector)
+const profileAvatarElement = document.querySelector(profileAvatarSelector)
 const selectorElements = '.elements';
 const formAddSelector = '.popup-add-photo-block';
 const formAddElement = document.querySelector(formAddSelector)
@@ -66,12 +66,11 @@ const createCard = function (cardItem) {
             })
         },
         (cardId) => {
-                api.addLike(cardId).then((data) => {
-                    cardElement.setLikes(data.likes)
-                    cardElement.setLikeCounter(data.likes.length)
-                })
-            }
-
+            api.addLike(cardId).then((data) => {
+                cardElement.setLikes(data.likes)
+                cardElement.setLikeCounter(data.likes.length)
+            })
+        }
     )
     return cardElement.createCard()
 }
@@ -108,6 +107,7 @@ const formEditPopup = new PopupWithForm(formEditSelector,
                 form_profile_status: data.about
             })
             formEditPopup.close()
+            formEditPopup.renderLoading(false)
         }).catch(catchError)
     }, () => {
         formEditValidator.resetValidation();
@@ -122,6 +122,7 @@ const formAddPopup = new PopupWithForm(formAddSelector,
         }).then((data) => {
             cardsList.addItem(createCard(data))
             formAddPopup.close()
+            formAddPopup.renderLoading(false)
         })
             .catch(catchError)
     }, () => {
@@ -134,6 +135,7 @@ const formAvatarPopup = new PopupWithForm(formAvatarSelector,
             .then((data) => {
                 userInfo.setNewAvatar(data.avatar)
                 formAvatarPopup.close()
+                formAvatarPopup.renderLoading(false)
             })
             .catch(catchError)
     }, () => {
@@ -161,16 +163,16 @@ api.getUserInfo()
             form_profile_status: data.about,
         })
         userInfo.setNewAvatar(data.avatar)
+        api.getInitialCards()
+            .then((data) => {
+                data.forEach((item) => {
+                    cardsList.appendItem(createCard(item))
+                })
+            })
+            .catch(catchError)
     })
     .catch(catchError)
 
-api.getInitialCards()
-    .then((data) => {
-        data.forEach((item) => {
-            cardsList.appendItem(createCard(item))
-        })
-    })
-    .catch(catchError)
 
 
 // обработчик события
