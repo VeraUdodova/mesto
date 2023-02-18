@@ -16,15 +16,16 @@
 <section class="profile">
     <div class="profile__photo-block">
     <img class="profile__photo"
+         src="<%=require('./images/no-image.png')%>"
          alt="Фотография пользователя">
     </div>
     <div class="profile__info">
         <div class="profile__edit">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <h1 class="profile__title"></h1>
             <button class="profile__edit-button"
                     type="button"></button>
         </div>
-        <p class="profile__subtitle">Исследователь океана</p>
+        <p class="profile__subtitle"></p>
     </div>
     <button class="profile__add-photo-button" type="button"></button>
 </section>
@@ -128,7 +129,7 @@
     <div class="popup__fullsize-pic-container">
         <button type="button"
                 class="popup__fullsize-pic-close popup__close"></button>
-        <img class="popup__fullsize-pic-image" src="https://ya.ru/"
+        <img class="popup__fullsize-pic-image" src="<%=require('./images/no-image.png')%>"
              alt="">
         <h2 class="popup__fullsize-pic-title"></h2>
     </div>
