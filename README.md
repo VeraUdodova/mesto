@@ -20,6 +20,6 @@
 
 
 
-[//]: # (* [Ссылка на GitHub Pages]&#40;https://veraudodova.github.io/mesto/&#41;)
+* [Ссылка на GH Pages](https://veraudodova.github.io/mesto/)
 
 Автор: Вера Удодова

@@ -14,9 +14,10 @@
 </header>
 
 <section class="profile">
+    <div class="profile__photo-block">
     <img class="profile__photo"
-         src="<%=require('./images/avatar-custo.jpg')%>"
          alt="Фотография пользователя">
+    </div>
     <div class="profile__info">
         <div class="profile__edit">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -158,7 +159,8 @@
         <form name="form_avatar"
               class="popup__form popup__avatar-form"
               novalidate>
-            <p class="popup__target popup__avatar-text">Обновить аватар</p>
+            <p class="popup__target popup__avatar-text">Обновить
+                аватар</p>
             <div class="popup__form-field">
                 <input
                         type="url"

@@ -1,10 +1,10 @@
-.profile__edit{
+.profile__edit {
     display: flex;
     flex-direction: row;
 }
 
-@media screen and (max-width: 700px){
-    .profile__edit{
+@media screen and (max-width: 700px) {
+    .profile__edit {
         padding-bottom: 4px;
         position: relative;
     }
